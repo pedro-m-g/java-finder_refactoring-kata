@@ -1,9 +1,9 @@
 package test;
 
 import algorithm.F;
-import algorithm.FT;
+import algorithm.Criteria;
 import algorithm.Finder;
-import algorithm.Thing;
+import algorithm.Person;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,10 +14,10 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class FinderTests {
-    Thing sue   = new Thing();
-    Thing greg  = new Thing();
-    Thing sarah = new Thing();
-    Thing mike  = new Thing();
+    Person sue   = new Person();
+    Person greg  = new Person();
+    Person sarah = new Person();
+    Person mike  = new Person();
 
     @Before
     public void setup() {
@@ -33,10 +33,10 @@ public class FinderTests {
 
     @Test
     public void Returns_Empty_Results_When_Given_Empty_List() {
-        List<Thing> list   = new ArrayList<Thing>();
-        Finder      finder = new Finder(list);
+        List<Person> list   = new ArrayList<Person>();
+        Finder       finder = new Finder(list);
 
-        F result = finder.Find(FT.One);
+        F result = finder.Find(Criteria.One);
         assertEquals(null, result.P1);
 
         assertEquals(null, result.P2);
@@ -44,12 +44,12 @@ public class FinderTests {
 
     @Test
     public void Returns_Empty_Results_When_Given_One_Person() {
-        List<Thing> list = new ArrayList<Thing>();
+        List<Person> list = new ArrayList<Person>();
         list.add(sue);
 
         Finder finder = new Finder(list);
 
-        F result = finder.Find(FT.One);
+        F result = finder.Find(Criteria.One);
 
         assertEquals(null, result.P1);
         assertEquals(null, result.P2);
@@ -57,12 +57,12 @@ public class FinderTests {
 
     @Test
     public void Returns_Closest_Two_For_Two_People() {
-        List<Thing> list = new ArrayList<Thing>();
+        List<Person> list = new ArrayList<Person>();
         list.add(sue);
         list.add(greg);
         Finder finder = new Finder(list);
 
-        F result = finder.Find(FT.One);
+        F result = finder.Find(Criteria.One);
 
         assertEquals(sue, result.P1);
         assertEquals(greg, result.P2);
@@ -70,13 +70,13 @@ public class FinderTests {
 
     @Test
     public void Returns_Furthest_Two_For_Two_People() {
-        List<Thing> list = new ArrayList<Thing>();
+        List<Person> list = new ArrayList<Person>();
         list.add(mike);
         list.add(greg);
 
         Finder finder = new Finder(list);
 
-        F result = finder.Find(FT.Two);
+        F result = finder.Find(Criteria.Two);
 
         assertEquals(greg, result.P1);
         assertEquals(mike, result.P2);
@@ -84,14 +84,14 @@ public class FinderTests {
 
     @Test
     public void Returns_Furthest_Two_For_Four_People() {
-        List<Thing> list = new ArrayList<Thing>();
+        List<Person> list = new ArrayList<Person>();
         list.add(sue);
         list.add(sarah);
         list.add(mike);
         list.add(greg);
         Finder finder = new Finder(list);
 
-        F result = finder.Find(FT.Two);
+        F result = finder.Find(Criteria.Two);
 
         assertEquals(sue, result.P1);
         assertEquals(sarah, result.P2);
@@ -99,7 +99,7 @@ public class FinderTests {
 
     @Test
     public void Returns_Closest_Two_For_Four_People() {
-        List<Thing> list = new ArrayList<Thing>();
+        List<Person> list = new ArrayList<Person>();
         list.add(sue);
         list.add(sarah);
         list.add(mike);
@@ -107,7 +107,7 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        F result = finder.Find(FT.One);
+        F result = finder.Find(Criteria.One);
 
         assertEquals(sue, result.P1);
         assertEquals(greg, result.P2);
