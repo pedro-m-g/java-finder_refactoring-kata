@@ -10,39 +10,39 @@ public class Finder {
         this.people = people;
     }
 
-    public F Find(Criteria criteria) {
-        List<F> tr = new ArrayList<F>();
+    public Couple Find(Criteria criteria) {
+        List<Couple> coupleCombinations = new ArrayList<Couple>();
 
         for (int i = 0; i < people.size() - 1; i++) {
             for (int j = i + 1; j < people.size(); j++) {
-                F r = new F();
+                Couple couple = new Couple();
                 if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
-                    r.P1 = people.get(i);
-                    r.P2 = people.get(j);
+                    couple.youngest = people.get(i);
+                    couple.oldest   = people.get(j);
                 } else {
-                    r.P1 = people.get(j);
-                    r.P2 = people.get(i);
+                    couple.youngest = people.get(j);
+                    couple.oldest   = people.get(i);
                 }
-                r.D = r.P2.birthDate.getTime() - r.P1.birthDate.getTime();
-                tr.add(r);
+                couple.distance = couple.oldest.birthDate.getTime() - couple.youngest.birthDate.getTime();
+                coupleCombinations.add(couple);
             }
         }
 
-        if (tr.size() < 1) {
-            return new F();
+        if (coupleCombinations.size() < 1) {
+            return new Couple();
         }
 
-        F answer = tr.get(0);
-        for (F potentialResult : tr) {
+        Couple answer = coupleCombinations.get(0);
+        for (Couple potentialResult : coupleCombinations) {
             switch (criteria) {
-                case One:
-                    if (potentialResult.D < answer.D) {
+                case Closest:
+                    if (potentialResult.distance < answer.distance) {
                         answer = potentialResult;
                     }
                     break;
 
-                case Two:
-                    if (potentialResult.D > answer.D) {
+                case Farthest:
+                    if (potentialResult.distance > answer.distance) {
                         answer = potentialResult;
                     }
                     break;

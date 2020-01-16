@@ -1,6 +1,6 @@
 package test;
 
-import algorithm.F;
+import algorithm.Couple;
 import algorithm.Criteria;
 import algorithm.Finder;
 import algorithm.Person;
@@ -36,10 +36,10 @@ public class FinderTests {
         List<Person> list   = new ArrayList<Person>();
         Finder       finder = new Finder(list);
 
-        F result = finder.Find(Criteria.One);
-        assertEquals(null, result.P1);
+        Couple result = finder.Find(Criteria.Closest);
+        assertEquals(null, result.youngest);
 
-        assertEquals(null, result.P2);
+        assertEquals(null, result.oldest);
     }
 
     @Test
@@ -49,10 +49,10 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        F result = finder.Find(Criteria.One);
+        Couple result = finder.Find(Criteria.Closest);
 
-        assertEquals(null, result.P1);
-        assertEquals(null, result.P2);
+        assertEquals(null, result.youngest);
+        assertEquals(null, result.oldest);
     }
 
     @Test
@@ -62,10 +62,10 @@ public class FinderTests {
         list.add(greg);
         Finder finder = new Finder(list);
 
-        F result = finder.Find(Criteria.One);
+        Couple result = finder.Find(Criteria.Closest);
 
-        assertEquals(sue, result.P1);
-        assertEquals(greg, result.P2);
+        assertEquals(sue, result.youngest);
+        assertEquals(greg, result.oldest);
     }
 
     @Test
@@ -76,10 +76,10 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        F result = finder.Find(Criteria.Two);
+        Couple result = finder.Find(Criteria.Farthest);
 
-        assertEquals(greg, result.P1);
-        assertEquals(mike, result.P2);
+        assertEquals(greg, result.youngest);
+        assertEquals(mike, result.oldest);
     }
 
     @Test
@@ -91,10 +91,10 @@ public class FinderTests {
         list.add(greg);
         Finder finder = new Finder(list);
 
-        F result = finder.Find(Criteria.Two);
+        Couple result = finder.Find(Criteria.Farthest);
 
-        assertEquals(sue, result.P1);
-        assertEquals(sarah, result.P2);
+        assertEquals(sue, result.youngest);
+        assertEquals(sarah, result.oldest);
     }
 
     @Test
@@ -107,9 +107,9 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        F result = finder.Find(Criteria.One);
+        Couple result = finder.Find(Criteria.Closest);
 
-        assertEquals(sue, result.P1);
-        assertEquals(greg, result.P2);
+        assertEquals(sue, result.youngest);
+        assertEquals(greg, result.oldest);
     }
 }
