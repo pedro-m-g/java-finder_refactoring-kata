@@ -23,7 +23,7 @@ public class CoupleByCriteriaFinderTests {
         List<Person>           list   = new ArrayList<Person>();
         CoupleByCriteriaFinder finder = new CoupleByCriteriaFinder(list);
 
-        Couple couple = finder.Find(Criteria.Closest);
+        Couple couple = finder.find(Criteria.Closest);
         assertEquals(null, couple.youngest);
 
         assertEquals(null, couple.oldest);
@@ -36,7 +36,7 @@ public class CoupleByCriteriaFinderTests {
 
         CoupleByCriteriaFinder finder = new CoupleByCriteriaFinder(list);
 
-        Couple couple = finder.Find(Criteria.Closest);
+        Couple couple = finder.find(Criteria.Closest);
 
         assertEquals(null, couple.youngest);
         assertEquals(null, couple.oldest);
@@ -49,7 +49,7 @@ public class CoupleByCriteriaFinderTests {
         list.add(greg);
         CoupleByCriteriaFinder finder = new CoupleByCriteriaFinder(list);
 
-        Couple couple = finder.Find(Criteria.Closest);
+        Couple couple = finder.find(Criteria.Closest);
 
         assertEquals(sue, couple.youngest);
         assertEquals(greg, couple.oldest);
@@ -63,7 +63,7 @@ public class CoupleByCriteriaFinderTests {
 
         CoupleByCriteriaFinder finder = new CoupleByCriteriaFinder(list);
 
-        Couple couple = finder.Find(Criteria.Farthest);
+        Couple couple = finder.find(Criteria.Farthest);
 
         assertEquals(greg, couple.youngest);
         assertEquals(mike, couple.oldest);
@@ -78,7 +78,7 @@ public class CoupleByCriteriaFinderTests {
         list.add(greg);
         CoupleByCriteriaFinder finder = new CoupleByCriteriaFinder(list);
 
-        Couple couple = finder.Find(Criteria.Farthest);
+        Couple couple = finder.find(Criteria.Farthest);
 
         assertEquals(sue, couple.youngest);
         assertEquals(sarah, couple.oldest);
@@ -94,7 +94,7 @@ public class CoupleByCriteriaFinderTests {
 
         CoupleByCriteriaFinder finder = new CoupleByCriteriaFinder(list);
 
-        Couple couple = finder.Find(Criteria.Closest);
+        Couple couple = finder.find(Criteria.Closest);
 
         assertEquals(sue, couple.youngest);
         assertEquals(greg, couple.oldest);
