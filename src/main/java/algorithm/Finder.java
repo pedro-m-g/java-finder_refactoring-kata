@@ -42,18 +42,11 @@ public class Finder {
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				PersonPair personPair = new PersonPair();
 				Person person1 = people.get(i);
 				Person person2 = people.get(j);
-				if (person1.compareTo(person2) < 0) {
-					personPair.younger(person1);
-					personPair.older(person2);
-				} else {
-					personPair.younger(person2);
-					personPair.older(person1);
-				}
-				personPair.ageDiff(personPair.older().birthDate().getTimeInMillis()
-						- personPair.younger().birthDate().getTimeInMillis());
+				PersonPair personPair = person1.compareTo(person2) < 0
+					? PersonPair.create(person1, person2)
+					: PersonPair.create(person2, person1);
 				tr.add(personPair);
 			}
 		}
