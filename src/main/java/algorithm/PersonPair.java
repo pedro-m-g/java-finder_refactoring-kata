@@ -4,7 +4,7 @@ public class PersonPair {
 
 	private Person younger;
 	private Person older;
-	public long ageDiff;
+	private long ageDiff;
 
 	public Person younger() {
 		return this.younger;
@@ -20,6 +20,14 @@ public class PersonPair {
 
 	public void older(Person older) {
 		this.older = older;
+	}
+
+	public long ageDiff() {
+		return this.ageDiff;
+	}
+
+	public void ageDiff(long ageDiff) {
+		this.ageDiff = ageDiff;
 	}
 
 }

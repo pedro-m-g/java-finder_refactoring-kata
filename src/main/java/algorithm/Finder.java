@@ -21,13 +21,13 @@ public class Finder {
 		for (PersonPair result : peopleSetProduct) {
 			switch (ft) {
 				case One:
-					if (result.ageDiff < answer.ageDiff) {
+					if (result.ageDiff() < answer.ageDiff()) {
 						answer = result;
 					}
 					break;
 
 				case Two:
-					if (result.ageDiff > answer.ageDiff) {
+					if (result.ageDiff() > answer.ageDiff()) {
 						answer = result;
 					}
 					break;
@@ -52,8 +52,8 @@ public class Finder {
 					personPair.younger(person2);
 					personPair.older(person1);
 				}
-				personPair.ageDiff = personPair.older().birthDate().getTimeInMillis()
-						- personPair.younger().birthDate().getTimeInMillis();
+				personPair.ageDiff(personPair.older().birthDate().getTimeInMillis()
+						- personPair.younger().birthDate().getTimeInMillis());
 				tr.add(personPair);
 			}
 		}
