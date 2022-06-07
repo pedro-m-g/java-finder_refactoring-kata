@@ -24,10 +24,10 @@ public class FinderTests {
 
 	@Before
 	public void setup() {
-		sue = new Person(new GregorianCalendar(1950, 0, 1));
-		greg = new Person(new GregorianCalendar(1952, 5, 1));
-		sarah = new Person(new GregorianCalendar(1982, 0, 1));
-		mike = new Person(new GregorianCalendar(1979, 0, 1));
+		sue = new Person("Sue", new GregorianCalendar(1950, 0, 1));
+		greg = new Person("Greg", new GregorianCalendar(1952, 5, 1));
+		sarah = new Person("Sarah", new GregorianCalendar(1982, 0, 1));
+		mike = new Person("Mike", new GregorianCalendar(1979, 0, 1));
 	}
 
 	@Test
@@ -35,7 +35,7 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		Finder finder = new Finder(list);
 
-		Optional<PersonPair> result = finder.Find(FT.One);
+		Optional<PersonPair> result = finder.closestAgeDiff();
 		assertEquals(true, result.isEmpty());
 	}
 
@@ -46,7 +46,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Optional<PersonPair> result = finder.Find(FT.One);
+		Optional<PersonPair> result = finder.closestAgeDiff();
 
 		assertEquals(true, result.isEmpty());
 	}
@@ -58,7 +58,7 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.One).get();
+		PersonPair result = finder.closestAgeDiff().get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(greg, result.older());
@@ -103,7 +103,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.One).get();
+		PersonPair result = finder.closestAgeDiff().get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(greg, result.older());

@@ -11,6 +11,18 @@ public class Finder {
 		this.people = people;
 	}
 
+	public Optional<PersonPair> closestAgeDiff() {
+		List<PersonPair> peopleSetProduct = peopleSetProduct();
+
+		if (peopleSetProduct.isEmpty()) {
+			return Optional.empty();
+		}
+
+		return peopleSetProduct.stream()
+			.min((personPair1, personPair2)
+				-> Long.compare(personPair1.ageDiff(), personPair2.ageDiff()));
+	}
+
 	public Optional<PersonPair> Find(FT ft) {
 		List<PersonPair> peopleSetProduct = peopleSetProduct();
 

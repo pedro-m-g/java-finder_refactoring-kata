@@ -4,9 +4,11 @@ import java.util.Calendar;
 
 public class Person implements Comparable<Person> {
 
+	private String name;
 	private Calendar birthDate;
 
-	public Person(Calendar birthDate) {
+	public Person(String name, Calendar birthDate) {
+		this.name = name;
 		this.birthDate = birthDate;
 	}
 
@@ -20,6 +22,11 @@ public class Person implements Comparable<Person> {
 			this.birthDate().getTimeInMillis(),
 			other.birthDate().getTimeInMillis()
 		);
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
 	}
 
 }
