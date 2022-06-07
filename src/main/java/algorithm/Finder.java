@@ -12,53 +12,17 @@ public class Finder {
 	}
 
 	public Optional<PersonPair> closestAgeDiff() {
-		List<PersonPair> peopleSetProduct = peopleSetProduct();
-
-		if (peopleSetProduct.isEmpty()) {
-			return Optional.empty();
-		}
-
-		return peopleSetProduct.stream()
-			.min((personPair1, personPair2)
-				-> Long.compare(personPair1.ageDiff(), personPair2.ageDiff()));
+		return peopleSetProduct()
+			.stream()
+			.min((personPair1, personPair2) ->
+				Long.compare(personPair1.ageDiff(), personPair2.ageDiff()));
 	}
 
 	public Optional<PersonPair> furthestAgeDiff() {
-		List<PersonPair> peopleSetProduct = peopleSetProduct();
-
-		if (peopleSetProduct.isEmpty()) {
-			return Optional.empty();
-		}
-
-		return peopleSetProduct.stream()
-				.max((personPair1, personPair2) -> Long.compare(personPair1.ageDiff(), personPair2.ageDiff()));
-	}
-
-	public Optional<PersonPair> Find(FT ft) {
-		List<PersonPair> peopleSetProduct = peopleSetProduct();
-
-		if (peopleSetProduct.isEmpty()) {
-			return Optional.empty();
-		}
-
-		PersonPair answer = peopleSetProduct.get(0);
-		for (PersonPair result : peopleSetProduct) {
-			switch (ft) {
-				case One:
-					if (result.ageDiff() < answer.ageDiff()) {
-						answer = result;
-					}
-					break;
-
-				case Two:
-					if (result.ageDiff() > answer.ageDiff()) {
-						answer = result;
-					}
-					break;
-			}
-		}
-
-		return Optional.of(answer);
+		return peopleSetProduct()
+			.stream()
+			.max((personPair1, personPair2) ->
+				Long.compare(personPair1.ageDiff(), personPair2.ageDiff()));
 	}
 
 	private List<PersonPair> peopleSetProduct() {
