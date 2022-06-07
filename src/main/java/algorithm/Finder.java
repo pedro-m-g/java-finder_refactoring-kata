@@ -13,7 +13,7 @@ public class Finder {
 	public F Find(FT ft) {
 		List<F> peopleSetProduct = peopleSetProduct();
 
-		if (peopleSetProduct.size() < 1) {
+		if (peopleSetProduct.isEmpty()) {
 			return new F();
 		}
 
