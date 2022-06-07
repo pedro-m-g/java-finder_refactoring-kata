@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import algorithm.PersonPair;
-import algorithm.FT;
 import algorithm.Finder;
 import algorithm.Person;
 
@@ -72,7 +71,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.Two).get();
+		PersonPair result = finder.furthestAgeDiff().get();
 
 		assertEquals(greg, result.younger());
 		assertEquals(mike, result.older());
@@ -87,7 +86,7 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.Two).get();
+		PersonPair result = finder.furthestAgeDiff().get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(sarah, result.older());

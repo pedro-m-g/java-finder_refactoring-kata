@@ -23,6 +23,17 @@ public class Finder {
 				-> Long.compare(personPair1.ageDiff(), personPair2.ageDiff()));
 	}
 
+	public Optional<PersonPair> furthestAgeDiff() {
+		List<PersonPair> peopleSetProduct = peopleSetProduct();
+
+		if (peopleSetProduct.isEmpty()) {
+			return Optional.empty();
+		}
+
+		return peopleSetProduct.stream()
+				.max((personPair1, personPair2) -> Long.compare(personPair1.ageDiff(), personPair2.ageDiff()));
+	}
+
 	public Optional<PersonPair> Find(FT ft) {
 		List<PersonPair> peopleSetProduct = peopleSetProduct();
 
