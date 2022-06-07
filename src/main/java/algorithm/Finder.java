@@ -39,7 +39,7 @@ public class Finder {
 	}
 
 	private List<PersonPair> peopleSetProduct() {
-		List<PersonPair> tr = new ArrayList<PersonPair>();
+		List<PersonPair> peopleSetProduct = new ArrayList<PersonPair>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
@@ -48,9 +48,9 @@ public class Finder {
 				PersonPair personPair = person1.compareTo(person2) < 0
 					? new PersonPair(person1, person2)
 					: new PersonPair(person2, person1);
-				tr.add(personPair);
+				peopleSetProduct.add(personPair);
 			}
 		}
-		return tr;
+		return peopleSetProduct;
 	}
 }
