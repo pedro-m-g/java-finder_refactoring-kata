@@ -3,7 +3,7 @@ package algorithm;
 public class PersonPair {
 
 	private Person younger;
-	public Person older;
+	private Person older;
 	public long ageDiff;
 
 	public Person younger() {
@@ -12,6 +12,14 @@ public class PersonPair {
 
 	public void younger(Person younger) {
 		this.younger = younger;
+	}
+
+	public Person older() {
+		return this.older;
+	}
+
+	public void older(Person older) {
+		this.older = older;
 	}
 
 }

@@ -47,12 +47,12 @@ public class Finder {
 				Person person2 = people.get(j);
 				if (person1.compareTo(person2) < 0) {
 					personPair.younger(person1);
-					personPair.older = person2;
+					personPair.older(person2);
 				} else {
 					personPair.younger(person2);
-					personPair.older = person1;
+					personPair.older(person1);
 				}
-				personPair.ageDiff = personPair.older.birthDate().getTimeInMillis()
+				personPair.ageDiff = personPair.older().birthDate().getTimeInMillis()
 						- personPair.younger().birthDate().getTimeInMillis();
 				tr.add(personPair);
 			}

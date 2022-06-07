@@ -37,7 +37,7 @@ public class FinderTests {
 		PersonPair result = finder.Find(FT.One);
 		assertEquals(null, result.younger());
 
-		assertEquals(null, result.older);
+		assertEquals(null, result.older());
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class FinderTests {
 		PersonPair result = finder.Find(FT.One);
 
 		assertEquals(null, result.younger());
-		assertEquals(null, result.older);
+		assertEquals(null, result.older());
 	}
 
 	@Test
@@ -63,7 +63,7 @@ public class FinderTests {
 		PersonPair result = finder.Find(FT.One);
 
 		assertEquals(sue, result.younger());
-		assertEquals(greg, result.older);
+		assertEquals(greg, result.older());
 	}
 
 	@Test
@@ -77,7 +77,7 @@ public class FinderTests {
 		PersonPair result = finder.Find(FT.Two);
 
 		assertEquals(greg, result.younger());
-		assertEquals(mike, result.older);
+		assertEquals(mike, result.older());
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class FinderTests {
 		PersonPair result = finder.Find(FT.Two);
 
 		assertEquals(sue, result.younger());
-		assertEquals(sarah, result.older);
+		assertEquals(sarah, result.older());
 	}
 
 	@Test
@@ -108,7 +108,7 @@ public class FinderTests {
 		PersonPair result = finder.Find(FT.One);
 
 		assertEquals(sue, result.younger());
-		assertEquals(greg, result.older);
+		assertEquals(greg, result.older());
 	}
 
 }
