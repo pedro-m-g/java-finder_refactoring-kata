@@ -1,11 +1,12 @@
 package algorithm;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Finder {
-	private final List<Thing> _p;
+	private final List<Person> _p;
 
-	public Finder(List<Thing> p) {
+	public Finder(List<Person> p) {
 		_p = p;
 	}
 
@@ -34,13 +35,13 @@ public class Finder {
 		F answer = tr.get(0);
 		for (F result : tr) {
 			switch (ft) {
-				case One :
+				case One:
 					if (result.D < answer.D) {
 						answer = result;
 					}
 					break;
 
-				case Two :
+				case Two:
 					if (result.D > answer.D) {
 						answer = result;
 					}
