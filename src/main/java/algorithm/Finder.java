@@ -45,8 +45,8 @@ public class Finder {
 				Person person1 = people.get(i);
 				Person person2 = people.get(j);
 				PersonPair personPair = person1.compareTo(person2) < 0
-					? PersonPair.create(person1, person2)
-					: PersonPair.create(person2, person1);
+					? new PersonPair(person1, person2)
+					: new PersonPair(person2, person1);
 				tr.add(personPair);
 			}
 		}

@@ -6,13 +6,13 @@ public class PersonPair {
 	private Person older;
 	private long ageDiff;
 
-	public static PersonPair create(Person younger, Person older) {
-		PersonPair personPair = new PersonPair();
-		personPair.younger(younger);
-		personPair.older(older);
-		personPair.ageDiff(older.birthDate().getTimeInMillis()
-				- younger.birthDate().getTimeInMillis());
-		return personPair;
+	public PersonPair() { }
+
+	public PersonPair(Person younger, Person older) {
+		this.younger = younger;
+		this.older = older;
+		this.ageDiff = older.birthDate().getTimeInMillis()
+			- younger.birthDate().getTimeInMillis();
 	}
 
 	public Person younger() {
