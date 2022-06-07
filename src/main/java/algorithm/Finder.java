@@ -16,14 +16,14 @@ public class Finder {
 		for (int i = 0; i < _p.size() - 1; i++) {
 			for (int j = i + 1; j < _p.size(); j++) {
 				F r = new F();
-				if (_p.get(i).birthDate.getTimeInMillis() < _p.get(j).birthDate.getTimeInMillis()) {
+				if (_p.get(i).birthDate().getTimeInMillis() < _p.get(j).birthDate().getTimeInMillis()) {
 					r.P1 = _p.get(i);
 					r.P2 = _p.get(j);
 				} else {
 					r.P1 = _p.get(j);
 					r.P2 = _p.get(i);
 				}
-				r.D = r.P2.birthDate.getTimeInMillis() - r.P1.birthDate.getTimeInMillis();
+				r.D = r.P2.birthDate().getTimeInMillis() - r.P1.birthDate().getTimeInMillis();
 				tr.add(r);
 			}
 		}
