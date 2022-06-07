@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import algorithm.PersonPair;
-import algorithm.Finder;
+import algorithm.PersonAgeDiffCalculator;
 import algorithm.Person;
 
 public class FinderTests {
@@ -32,9 +32,9 @@ public class FinderTests {
 	@Test
 	public void Returns_Empty_Results_When_Given_Empty_List() {
 		List<Person> list = new ArrayList<Person>();
-		Finder finder = new Finder(list);
+		PersonAgeDiffCalculator personAgeDiffCalculator = new PersonAgeDiffCalculator(list);
 
-		Optional<PersonPair> result = finder.closestAgeDiff();
+		Optional<PersonPair> result = personAgeDiffCalculator.closestAgeDiff();
 		assertEquals(true, result.isEmpty());
 	}
 
@@ -43,9 +43,9 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		list.add(sue);
 
-		Finder finder = new Finder(list);
+		PersonAgeDiffCalculator personAgeDiffCalculator = new PersonAgeDiffCalculator(list);
 
-		Optional<PersonPair> result = finder.closestAgeDiff();
+		Optional<PersonPair> result = personAgeDiffCalculator.closestAgeDiff();
 
 		assertEquals(true, result.isEmpty());
 	}
@@ -55,9 +55,9 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		list.add(sue);
 		list.add(greg);
-		Finder finder = new Finder(list);
+		PersonAgeDiffCalculator personAgeDiffCalculator = new PersonAgeDiffCalculator(list);
 
-		PersonPair result = finder.closestAgeDiff().get();
+		PersonPair result = personAgeDiffCalculator.closestAgeDiff().get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(greg, result.older());
@@ -69,9 +69,9 @@ public class FinderTests {
 		list.add(mike);
 		list.add(greg);
 
-		Finder finder = new Finder(list);
+		PersonAgeDiffCalculator personAgeDiffCalculator = new PersonAgeDiffCalculator(list);
 
-		PersonPair result = finder.furthestAgeDiff().get();
+		PersonPair result = personAgeDiffCalculator.furthestAgeDiff().get();
 
 		assertEquals(greg, result.younger());
 		assertEquals(mike, result.older());
@@ -84,9 +84,9 @@ public class FinderTests {
 		list.add(sarah);
 		list.add(mike);
 		list.add(greg);
-		Finder finder = new Finder(list);
+		PersonAgeDiffCalculator personAgeDiffCalculator = new PersonAgeDiffCalculator(list);
 
-		PersonPair result = finder.furthestAgeDiff().get();
+		PersonPair result = personAgeDiffCalculator.furthestAgeDiff().get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(sarah, result.older());
@@ -100,9 +100,9 @@ public class FinderTests {
 		list.add(mike);
 		list.add(greg);
 
-		Finder finder = new Finder(list);
+		PersonAgeDiffCalculator personAgeDiffCalculator = new PersonAgeDiffCalculator(list);
 
-		PersonPair result = finder.closestAgeDiff().get();
+		PersonPair result = personAgeDiffCalculator.closestAgeDiff().get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(greg, result.older());
