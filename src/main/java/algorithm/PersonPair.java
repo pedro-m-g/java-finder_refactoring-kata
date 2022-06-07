@@ -25,4 +25,13 @@ public class PersonPair {
 		return this.ageDiff;
 	}
 
+	@Override
+	public String toString() {
+		return String.format(
+			"(%s, %s)",
+			this.younger.toString(),
+			this.older.toString()
+		);
+	}
+
 }

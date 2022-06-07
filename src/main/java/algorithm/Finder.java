@@ -1,8 +1,9 @@
 package algorithm;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Finder {
 	private final List<Person> people;
@@ -26,18 +27,21 @@ public class Finder {
 	}
 
 	private List<PersonPair> peopleSetProduct() {
-		List<PersonPair> peopleSetProduct = new ArrayList<PersonPair>();
+		if (people.isEmpty())
+			return Collections.emptyList();
 
-		for (int i = 0; i < people.size() - 1; i++) {
-			for (int j = i + 1; j < people.size(); j++) {
-				Person person1 = people.get(i);
-				Person person2 = people.get(j);
-				PersonPair personPair = person1.compareTo(person2) < 0
-					? new PersonPair(person1, person2)
-					: new PersonPair(person2, person1);
-				peopleSetProduct.add(personPair);
-			}
-		}
-		return peopleSetProduct;
+		List<Person> firstElements = people.subList(0, people.size() - 1);
+		List<Person> secondElements = people.subList(1, people.size());
+
+		return firstElements.stream()
+			.flatMap(firstPerson ->
+				secondElements.stream()
+					.filter(secondPerson ->
+						people.indexOf(secondPerson) > people.indexOf(firstPerson))
+					.map(secondPerson ->
+						firstPerson.compareTo(secondPerson) < 0
+							? new PersonPair(firstPerson, secondPerson)
+							: new PersonPair(secondPerson, firstPerson))
+			).collect(Collectors.toList());
 	}
 }
