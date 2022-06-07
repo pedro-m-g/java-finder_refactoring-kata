@@ -53,7 +53,7 @@ public class Finder {
 					personPair.older = person1;
 				}
 				personPair.ageDiff = personPair.older.birthDate().getTimeInMillis()
-						- personPair.younger.birthDate().getTimeInMillis();
+						- personPair.younger().birthDate().getTimeInMillis();
 				tr.add(personPair);
 			}
 		}
