@@ -16,21 +16,17 @@ import algorithm.Person;
 
 public class FinderTests {
 
-	Person sue = new Person();
-	Person greg = new Person();
-	Person sarah = new Person();
-	Person mike = new Person();
+	Person sue;
+	Person greg;
+	Person sarah;
+	Person mike;
 
 	@Before
 	public void setup() {
-		sue.name = "Sue";
-		sue.birthDate = new Date(50, 0, 1);
-		greg.name = "Greg";
-		greg.birthDate = new Date(52, 5, 1);
-		sarah.name = "Sarah";
-		sarah.birthDate = new Date(82, 0, 1);
-		mike.name = "Mike";
-		mike.birthDate = new Date(79, 0, 1);
+		sue = Person.create("Sue", new Date(50, 0, 1));
+		greg = Person.create("Greg", new Date(52, 5, 1));
+		sarah = Person.create("Sarah", new Date(82, 0, 1));
+		mike = Person.create("Mike", new Date(79, 0, 1));
 	}
 
 	@Test
