@@ -3,11 +3,9 @@ package algorithm;
 import java.util.Calendar;
 
 public class Person {
-	private String name;
 	private Calendar birthDate;
 
-	public Person(String name, Calendar birthDate) {
-		this.name = name;
+	public Person(Calendar birthDate) {
 		this.birthDate = birthDate;
 	}
 
