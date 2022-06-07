@@ -3,7 +3,7 @@ package test;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.junit.Before;
@@ -23,10 +23,10 @@ public class FinderTests {
 
 	@Before
 	public void setup() {
-		sue = new Person("Sue", new Date(50, 0, 1));
-		greg = new Person("Greg", new Date(52, 5, 1));
-		sarah = new Person("Sarah", new Date(82, 0, 1));
-		mike = new Person("Mike", new Date(79, 0, 1));
+		sue = new Person("Sue", new GregorianCalendar(1950, 0, 1));
+		greg = new Person("Greg", new GregorianCalendar(1952, 5, 1));
+		sarah = new Person("Sarah", new GregorianCalendar(1982, 0, 1));
+		mike = new Person("Mike", new GregorianCalendar(1979, 0, 1));
 	}
 
 	@Test

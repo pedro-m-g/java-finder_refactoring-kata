@@ -1,12 +1,12 @@
 package algorithm;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Person {
 	public String name;
-	public Date birthDate;
+	public Calendar birthDate;
 
-	public Person(String name, Date birthDate) {
+	public Person(String name, Calendar birthDate) {
 		this.name = name;
 		this.birthDate = birthDate;
 	}
@@ -19,11 +19,11 @@ public class Person {
 		this.name = name;
 	}
 
-	public Date getBirthDate() {
+	public Calendar getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(Calendar birthDate) {
 		this.birthDate = birthDate;
 	}
 }
