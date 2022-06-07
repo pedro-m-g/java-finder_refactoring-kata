@@ -2,6 +2,7 @@ package algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Finder {
 	private final List<Person> people;
@@ -10,11 +11,11 @@ public class Finder {
 		this.people = people;
 	}
 
-	public PersonPair Find(FT ft) {
+	public Optional<PersonPair> Find(FT ft) {
 		List<PersonPair> peopleSetProduct = peopleSetProduct();
 
 		if (peopleSetProduct.isEmpty()) {
-			return new PersonPair();
+			return Optional.empty();
 		}
 
 		PersonPair answer = peopleSetProduct.get(0);
@@ -34,7 +35,7 @@ public class Finder {
 			}
 		}
 
-		return answer;
+		return Optional.of(answer);
 	}
 
 	private List<PersonPair> peopleSetProduct() {

@@ -6,8 +6,6 @@ public class PersonPair {
 	private Person older;
 	private long ageDiff;
 
-	public PersonPair() { }
-
 	public PersonPair(Person younger, Person older) {
 		this.younger = younger;
 		this.older = older;

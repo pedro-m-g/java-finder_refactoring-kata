@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,10 +35,8 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.One);
-		assertEquals(null, result.younger());
-
-		assertEquals(null, result.older());
+		Optional<PersonPair> result = finder.Find(FT.One);
+		assertEquals(true, result.isEmpty());
 	}
 
 	@Test
@@ -47,10 +46,9 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.One);
+		Optional<PersonPair> result = finder.Find(FT.One);
 
-		assertEquals(null, result.younger());
-		assertEquals(null, result.older());
+		assertEquals(true, result.isEmpty());
 	}
 
 	@Test
@@ -60,7 +58,7 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.One);
+		PersonPair result = finder.Find(FT.One).get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(greg, result.older());
@@ -74,7 +72,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.Two);
+		PersonPair result = finder.Find(FT.Two).get();
 
 		assertEquals(greg, result.younger());
 		assertEquals(mike, result.older());
@@ -89,7 +87,7 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.Two);
+		PersonPair result = finder.Find(FT.Two).get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(sarah, result.older());
@@ -105,7 +103,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		PersonPair result = finder.Find(FT.One);
+		PersonPair result = finder.Find(FT.One).get();
 
 		assertEquals(sue, result.younger());
 		assertEquals(greg, result.older());
