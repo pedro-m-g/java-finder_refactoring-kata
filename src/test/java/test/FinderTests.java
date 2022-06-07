@@ -23,10 +23,10 @@ public class FinderTests {
 
 	@Before
 	public void setup() {
-		sue = Person.create("Sue", new Date(50, 0, 1));
-		greg = Person.create("Greg", new Date(52, 5, 1));
-		sarah = Person.create("Sarah", new Date(82, 0, 1));
-		mike = Person.create("Mike", new Date(79, 0, 1));
+		sue = new Person("Sue", new Date(50, 0, 1));
+		greg = new Person("Greg", new Date(52, 5, 1));
+		sarah = new Person("Sarah", new Date(82, 0, 1));
+		mike = new Person("Mike", new Date(79, 0, 1));
 	}
 
 	@Test
