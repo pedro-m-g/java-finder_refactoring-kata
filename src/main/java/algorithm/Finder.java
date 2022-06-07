@@ -43,12 +43,14 @@ public class Finder {
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
 				F r = new F();
-				if (people.get(i).birthDate().getTimeInMillis() < people.get(j).birthDate().getTimeInMillis()) {
-					r.P1 = people.get(i);
-					r.P2 = people.get(j);
+				Person person1 = people.get(i);
+				Person person2 = people.get(j);
+				if (person1.compareTo(person2) < 0) {
+					r.P1 = person1;
+					r.P2 = person2;
 				} else {
-					r.P1 = people.get(j);
-					r.P2 = people.get(i);
+					r.P1 = person2;
+					r.P2 = person1;
 				}
 				r.D = r.P2.birthDate().getTimeInMillis() - r.P1.birthDate().getTimeInMillis();
 				tr.add(r);
